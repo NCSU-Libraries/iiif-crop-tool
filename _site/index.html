@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js"><!--required for mobile menu flash issue-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage - IIIF Crop</title>
+  <meta name="description" content="Homepage - IIIF Crop Tool" />
+  <meta name="keywords" content=", " />
+  <!-- Google fonts https://www.google.com/fonts
+  ================================================== -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://rawgit.com/heyman/leaflet-areaselect/master/src/leaflet-areaselect.css" />
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/mejackreed/Leaflet-IIIF/v1.0.1/leaflet-iiif.js"></script>
+  <script src="https://cdn.rawgit.com/heyman/leaflet-areaselect/da8905695db78354ddd5b5d9de6ef13699b9d7a7/src/leaflet-areaselect.js"></script>
+  <link rel="stylesheet" href="/iiif-crop/css/bundle.css">
+  <link rel="stylesheet" type="text/css" href="/iiif-crop/css/custom.css">
+  <!-- favicon
+  ================================================== -->
+  <link rel="shortcut icon" href="/iiif-crop/favicon.ico">
+  <!-- leaflet
+  ================================================== -->
+
+</head>
+
+  <body>
+<header>
+
+  <!-- NCSU Libraries Logo Area -->
+  <div class="tab-bar top-bar">
+		<div class="title-area">
+			<div class="name">
+			  	<a href="//www.lib.ncsu.edu" title="NCSU Library" rel="home" id="logo">
+					<img itemprop="logo" src="/iiif-crop/images/ncsu-library-logo-white.png" alt="Home" />
+			  	</a>
+			</div>
+		</div>
+	</div>
+  </header>
+  <div id="nav">
+<!-- This section controls menu items as well as large screen nav -->
+<div class="top-bar" id="main-menu">
+<a href="/iiif-crop/"><h2>IIIF Cropping Tool</h2></a>
+</div>
+</div>
+
+    <div id ="instructions">
+      <h1>Instructions</h1>
+      <h3>1) Locate the Item Identifier</h3>
+      <p>The Item Identifier is found under the Item Information Section for that resource in d.lib.ncsu.edu. If it is a multi-page resource, please also note the page number. After filling in the fields below, click submit to pull up that resource.</p>
+      <form action="" method="get">
+        <input type="text" name="newUrl" placeholder="Enter Item Identifier"/>
+        <input type="text" name="pageNum" placeholder="Enter Page Number (optional)"/>
+        <input type="submit"  />
+    </form>
+  <hr>
+    <h3>2) Position Crop Tool</h3>
+    <p>Drag the corners of the crop tool to extablish the boundaries of the final image. You can also click and drag the image to reposition the crop area.</p>
+  <hr>
+    <h3> 3) Check Crop and Submit URL</h3>
+    <p>Click on the link below to ensure that the image appears cropped correctly. If you are happy with the crop, copy the full URL and pase it into the Cropped Image field of the submission form.</p>
+    <div id="urlArea"></div>
+    <div id="copy">  <a class="bnt" onClick="CopyClipboard();" href="#"><i class="fa fa-clipboard"></i></div>
+  </div>
+  <div id="map"></div>
+
+	<footer role="contentinfo">
+<div id="footer">
+	<div id="f-address">
+		<h2>Contact</h2>
+		<h3 itemscope itemtype="http://schema.org/Library" itemprop="name"><link itemprop="logo" href="//www.lib.ncsu.edu/website/images/logo_small.png"><a href="//www.lib.ncsu.edu/" id="f-contact-hill" itemprop="url">D. H. Hill Library</a></h3>
+		<p>
+			<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<span itemprop="streetAddress">2 Broughton Drive</span> <br>
+				<span itemprop="postOfficeBoxNumber">Campus Box 7111</span> <br>
+				<span itemprop="addressLocality">Raleigh</span>,
+				<span itemprop="addressRegion">NC</span>
+				<span itemprop="postalCode">27695-7111</span> <br>
+			</span>
+			<span itemprop="telephone"><a href="tel:9195153364" id="f-hill-phone" data-attr="phone">(919) 515-3364</a></span>
+		</p>
+		<h3><a href="//www.lib.ncsu.edu/huntlibrary" id="f-contact-hunt">James B. Hunt Jr. Library</a></h3>
+		<p>1070 Partners Way<br>
+			Campus Box 7132<br>
+			Raleigh, NC 27606<br>
+			<a href="tel:9195157110" id="f-hunt-phone">(919) 515-7110</a>
+		</p>
+	</div>
+
+	<div id="f-libraries">
+		<h2><a href="//www.lib.ncsu.edu/hours/hill/general">Libraries</a></h2>
+
+		<nav role="navigation" aria-label="branch libraries navigation">
+			<ul id="f-lib-links">
+				<li><a href="//www.lib.ncsu.edu/">D. H. Hill Library</a></li>
+				<li><a href="//www.lib.ncsu.edu/huntlibrary">James B. Hunt Jr. Library</a></li>
+				<li><a href="//www.lib.ncsu.edu/design">Design Library</a></li>
+				<li><a href="//www.lib.ncsu.edu/nrl">Natural Resources Library</a></li>
+				<li><a href="//www.lib.ncsu.edu/vetmed">Veterinary Medicine Library</a></li>
+			</ul>
+		</nav>
+
+		<ul id="f-util-links" role="contentinfo">
+			<li><a href="//www.lib.ncsu.edu/copyright">Copyright</a></li>
+			<li><a href="//www.lib.ncsu.edu/disabilityservices">Disability Services</a></li>
+			<li><a href="//www.lib.ncsu.edu/privacy">Privacy Statement</a></li>
+			<li><a href="//staff.lib.ncsu.edu/">Staff Only</a></li>
+		</ul>
+	</div>
+
+	<div id="f-social">
+		<h2>Follow NCSU Libraries:</h2>
+
+		<nav role="navigation" aria-label="social navigation">
+			<ul>
+				<li><a href="https://twitter.com/ncsulibraries"><i class="fa fa-twitter"></i> Twitter</a></li>
+				<li><a href="https://www.facebook.com/ncsulibraries"><i class="fa fa-facebook"></i> Facebook</a></li>
+				<li><a href="http://www.youtube.com/view_play_list?p=D55CB2CA2013ACF8"><i class="fa fa-youtube"></i> YouTube</a></li>
+				<li><a href="http://instagram.com/ncsulibraries"><i class="fa fa-instagram"></i> Instagram</a></li>
+				<li><a href="https://www.flickr.com/photos/ncsulibraries/"><i class="fa fa-flickr"></i> Flickr</a></li>
+				<li><a href="//www.lib.ncsu.edu/rss-feeds"><i class="fa fa-rss"></i> Libraries' news</a></li>
+			</ul>
+		</nav>
+
+		<a class="giving" href="//www.lib.ncsu.edu/giving" title="Giving to the libraries"><img src="//www.lib.ncsu.edu/sites/all/themes/ncsulib_foundation/images/giving-to-libraries.jpg" alt="Giving To The Libraries"/></a>
+
+	</div>
+
+</div>
+
+		</footer>
+</html>
+
+    <script src="/iiif-crop/js/app.js"></script>
+
+
+  </body>
+</html>

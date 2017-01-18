@@ -1,0 +1,22 @@
+    <div id ="instructions">
+      <h1>Instructions</h1>
+      <h3>1) Locate the Item Identifier</h3>
+      <p>The Item Identifier is found under the Item Information Section for that resource in d.lib.ncsu.edu. If it is a multi-page resource, please also note the page number. After filling in the fields below, click submit to pull up that resource.</p>
+      <form action="" method="get">
+        <input type="text" name="newUrl" placeholder="Enter Item Identifier"/>
+        <input type="text" name="pageNum" placeholder="Enter Page Number (optional)"/>
+        <input type="submit"  />
+    </form>
+  <hr>
+    <h3>2) Position Crop Tool</h3>
+    <p>Drag the corners of the crop tool to extablish the boundaries of the final image. You can also click and drag the image to reposition the crop area.</p>
+  <hr>
+    <h3> 3) Check Crop and Submit URL</h3>
+    <p>Click on the link below to ensure that the image appears cropped correctly. If you are happy with the crop, copy the full URL and pase it into the Cropped Image field of the submission form.</p>
+    <div id="urlArea"></div>
+    <div id="copy">  <a class="bnt" onClick="CopyClipboard();" href="#"><i class="fa fa-clipboard"></i></div>
+  </div>
+  <div id="map"></div>
+
+{% include footer.html%}
+    <script src="{{site.baseurl}}/js/app.js"></script>

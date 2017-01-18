@@ -1,0 +1,66 @@
+body {
+background: #fff
+}
+
+h2 {
+font-size: 1.25rem;
+color: #c00
+}
+
+
+img#logo {
+width: 30%
+}
+
+ #map {
+  height: 100%;
+  margin: 0;
+}
+
+
+.leaflet-areaselect-container {
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+#urlArea {
+  background-color: #dbdbdb;
+  border: 1px solid black;
+  font-family: sans-serif;
+  padding: 10px;
+}
+div#urlArea a {
+  word-wrap: break-word;
+}
+div#urlArea a.btn {
+  float: right;
+}
+div#instructions{
+  width: 30%;
+  padding: 20px;
+  float: left;
+  overflow: auto;
+  height: 100%
+}
+
+div#main-menu.top-bar{
+  height: 60px;
+  background: #383838;
+}
+
+div#main-menu.top-bar h2{
+  font-size: 2rem;
+  color: #fff;
+  margin: 10px;
+}
+
+header .top-bar.tab-bar{
+  width:100%;
+  max-width: 85rem;
+}
+
+div#copy {
+  padding: 10px;
+  float: right;
+}

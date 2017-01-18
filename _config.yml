@@ -1,0 +1,22 @@
+# Site settings
+
+title:      IIIF Crop
+baseurl:    /iiif-crop
+name: IIIF Crop Tool
+# url:        "http://www.troymcginnis.com"
+# typekit:    pfj6jja
+# ga:
+
+# Meta Tags
+
+# Build settings
+include: ['_pages']
+
+exclude: ['build_scripts']
+
+permalink: pretty
+
+# Plugins
+
+
+markdown:    kramdown
