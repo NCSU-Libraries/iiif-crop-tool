@@ -1,7 +1,6 @@
 # Site settings
 
 title:      IIIF Crop
-baseurl:    /iiif-crop-tool
 name: IIIF Crop Tool
 # url:        "http://www.troymcginnis.com"
 # typekit:    pfj6jja
