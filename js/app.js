@@ -13,6 +13,11 @@ function getParameterByName(name, url) {
 var iiifUrl = "https://iiif.lib.ncsu.edu/iiif/";
 var imageId = getParameterByName ('newUrl');
 var page = getParameterByName('pageNum');
+  if (page == null){
+    page = "0000";
+  } else {
+    page = getParameterByName('pageNum');
+  }
 var pad = "0000";
 var cleanPageNum = pad.substring(0, pad.length - page.length) + page;
 
