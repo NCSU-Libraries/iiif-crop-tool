@@ -1,32 +1,14 @@
 function getParameterByName(name, url) {
     if (!url) {
-      url = window.location.href;
+      url = window.location.search;
     }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    url =  decodeURIComponent(url.split("=").slice(-1)[0]);
+    console.log(url.split("/full")[0])
+    url = url.split("/full")[0] + '/info.json';
+    return url;
 }
 
-var iiifUrl = "https://iiif.lib.ncsu.edu/iiif/";
-var imageId = getParameterByName ('newUrl');
-var page = getParameterByName('pageNum');
-  if (page == null){
-    page = "0000";
-  } else {
-    page = getParameterByName('pageNum');
-  }
-var pad = "0000";
-var cleanPageNum = pad.substring(0, pad.length - page.length) + page;
-
-var baseUrl = "";
-  if (cleanPageNum !=0000){
-      baseUrl = iiifUrl + imageId + "_" + cleanPageNum;
-    } else {
-      baseUrl = iiifUrl + imageId;
-    }
+var url = getParameterByName ('newUrl');
 
 var map = L.map('map', {
   center: [0, 0],
@@ -34,12 +16,13 @@ var map = L.map('map', {
   zoom: 0,
 });
 
-var iiifLayer = L.tileLayer.iiif(baseUrl + '/info.json').addTo(map);
+var iiifLayer = L.tileLayer.iiif(url).addTo(map);
 
 var areaSelect = L.areaSelect({
   width:200, height:300
 });
 
+$('#urlArea').html(url)
 function CopyClipboard(){
   // creating new textarea element and giveing it id 't'
   let t = document.createElement('textarea')
@@ -60,8 +43,6 @@ function CopyClipboard(){
 
 areaSelect.addTo(map);
 
-$('#urlArea').html(baseUrl)
-
 areaSelect.on('change', function() {
   var bounds = this.getBounds();
   var zoom = map.getZoom();
@@ -76,9 +57,6 @@ areaSelect.on('change', function() {
     Math.floor((max.x - min.x) * xRatio),
     Math.floor((min.y - max.y) * yRatio)
   ];
-  var url = baseUrl + '/' + region.join(',') + '/full/0/default.jpg';
-  var urlHeading = "IIIF URL";
-  $('#urlArea').html(
-    ' <a href="' + url + '" target=_blank>' + url + '</a>'
-  )
+  var region_url = url.replace("info.json", "") +  region.join(",") + '/full/0/default.jpg'
+  $('#urlArea').html(region_url)
 });

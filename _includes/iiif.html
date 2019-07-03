@@ -1,21 +1,17 @@
     <div id ="instructions">
       <h1>Instructions</h1>
-      <h3>1) Locate the Item Identifier</h3>
-      <p>The Item Identifier is found under the Item Information Section for that resource in d.lib.ncsu.edu. If it is a multi-page resource, please also note the page number. After filling in the fields below, click submit to pull up that resource.</p>
+      <h3>Locate the Image URL</h3>
+      <p>Locate the URL for the image. In the manifest it will often appear in with /full/full/0/default.jpg. </p>
       <form action="" method="get">
-        <input type="text" name="newUrl" placeholder="Enter Item Identifier"/>
-        <input type="text" name="pageNum" placeholder="Page Number"/>
-        <p>* Page number is required for any multi-page resource</p>
+        <input type="text" name="newUrl" placeholder="Enter Image URL"/>
         <input type="submit"  />
     </form>
-  <hr>
-    <h3>2) Position Crop Tool</h3>
-    <p>Drag the corners of the crop tool to establish the boundaries of the final image. You can also click and drag the image to reposition the crop area.</p>
-  <hr>
-    <h3> 3) Check Crop and Submit URL</h3>
-    <p>Click on the link below to ensure that the image appears cropped correctly. If you are happy with the crop, copy the full URL and paste it into the Cropped Image field of the submission form.</p>
+    <hr>
     <div id="urlArea"></div>
-    <div id="copy">  <a class="bnt" onClick="CopyClipboard();" href="#"><i class="fa fa-clipboard"></i></div>
+    <div id="copy">  <a class="bnt" onClick="CopyClipboard();" href="#"><i class="fa fa-clipboard"></i></a></div>
+    <div id="credits">
+      This applications uses <a href="https://bl.ocks.org/mejackreed/6936585f435b60aa9451ae2bc1c199f2">Leaflet-IIIF Cropping</a> and Jekyll. Developed by Todd Stoffer and Niqui O'Neill.
+      </div>
   </div>
   <div id="map"></div>
 

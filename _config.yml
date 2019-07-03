@@ -12,8 +12,6 @@ name: IIIF Crop Tool
 # Build settings
 include: ['_pages']
 
-exclude: ['build_scripts']
-
 permalink: pretty
 
 # Plugins
