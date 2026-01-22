@@ -70,7 +70,8 @@ function updateArea(selected) {
   const annotation = Array.isArray(selected) ? selected[0] : selected;
   const geometry = annotation['target']['selector']['geometry'];
   var region = [parseInt(geometry['x']), parseInt(geometry['y']), parseInt(geometry['w']), parseInt(geometry['h'])]
-  const rotation = viewer.viewport.getRotation()
+  let rotation = viewer.viewport.getRotation();
+  rotation = rotation > 359 ? rotation - 360 : rotation;
   var region_url = `${url.replace("info.json", "")}${region.join(",")}/full/${rotation}/default.jpg`
   document.querySelector('#urlArea').innerHTML = region_url
 }
